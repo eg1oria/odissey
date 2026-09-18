@@ -1,6 +1,5 @@
 // Каталог фильмов, собранный из Wikidata скриптом scripts/build-catalog.mjs.
 // Живёт только на сервере: в браузер уходят лишь нужные карточки.
-import "server-only";
 import raw from "@/data/catalog.json";
 
 type RawFilm = {

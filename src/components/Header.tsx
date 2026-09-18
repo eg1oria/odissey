@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { GENRES } from "@/lib/archive";
 
 export default function Header() {
   return (
@@ -8,19 +7,17 @@ export default function Header() {
         <Link href="/" className="text-xl font-bold tracking-tight">
           <span className="text-amber-400">Одис</span>сея
         </Link>
-        <nav className="hidden gap-4 text-sm text-neutral-300 md:flex">
+        <nav className="flex gap-4 text-sm text-neutral-300">
           <Link href="/catalog" className="hover:text-white">Каталог</Link>
-          {GENRES.slice(0, 5).map((g) => (
-            <Link key={g.slug} href={`/catalog?genre=${g.slug}`} className="hover:text-white">
-              {g.label}
-            </Link>
-          ))}
+          <Link href="/catalog?source=commons" className="hidden hover:text-white sm:inline">Wikimedia</Link>
+          <Link href="/catalog?source=youtube" className="hidden hover:text-white sm:inline">YouTube</Link>
+          <Link href="/catalog?source=archive" className="hidden hover:text-white sm:inline">Internet Archive</Link>
         </nav>
         <form action="/catalog" className="ml-auto w-full sm:w-72">
           <input
             type="search"
             name="q"
-            placeholder="Поиск фильмов (на английском)…"
+            placeholder="Название фильма или режиссёр…"
             className="w-full rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm outline-none placeholder:text-neutral-500 focus:border-amber-400"
           />
         </form>
